@@ -1,9 +1,12 @@
 // Here your functions Victor
 let suit = ["Club","Diamond","Spade","Heart"];
 let cardArr = [];
+let log = [] ;
 
 const howManyCards = () => {
   document.body.querySelector('#cards').innerHTML ="";
+  document.body.querySelector('#cardsSortDetail').innerHTML ="";
+  document.body.querySelector('#detail').innerHTML ="";
   cardArr = [];
   let InputVal = document.body.querySelector('#inputNumber').value;
   for (let i=0; i<InputVal;i++) {
@@ -27,10 +30,9 @@ const howManyCards = () => {
 }
 
 
-log = [];
 
 function sortBubble() {
-  document.body.querySelector('#cardsSortDetail').innerHTML = '';
+  log = [];
 
   var swapped;
     do {
@@ -51,6 +53,7 @@ function sortBubble() {
     document.body.querySelector('#cardsSortDetail').innerHTML += `<div class="PlayingCard mt-3"><span class="topLeft${cardArr[num].suit} ${cardArr[num].color}"></span> ${cardArr[num].number} <span class="bottomRight${cardArr[num].suit} ${cardArr[num].color}"></span></div>`;
   }
   for (swap in log) {
+    document.body.querySelector("#detail").innerHTML += "<br>";
     for (card in log[swap]) {
       document.body.querySelector('#detail').innerHTML += `<div class="PlayingCard mt-3"><span class="topLeft${log[swap][card].suit} ${log[swap][card].color}"></span> ${log[swap][card].number} <span class="bottomRight${log[swap][card].suit} ${log[swap][card].color}"></span></div>`;
     }
